@@ -41,13 +41,18 @@
                             placeholder="Introduzca su nombre" required>
                     </div>
                     <div class="mb-3">
-                        <label>TelÃ©fono:</label>
+                        <label>Telefono:</label>
                         <input type="text" id="telefonoUsuario" name="telefonoUsuario" class="form-control"
                             placeholder="Introduzca su telefono" required>
                     </div>
                     <div class="mb-3">
                         <label>Email:</label>
                         <input type="email" id="emailUsuario" name="emailUsuario" class="form-control"
+                            placeholder="Introduzca su email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Repetir email:</label>
+                        <input type="email" id="confirmEmailUsuario" name="confirmEmailUsuario" class="form-control"
                             placeholder="Introduzca su email" required>
                     </div>
                     <div class="mb-3">
@@ -94,6 +99,8 @@
         <!-- Contenedor de mensajes de resultado -->
         <div id="result" class="text-center mt-3 text-danger"></div>
     </div>
+    <script src="js/registro.js"></script>
+    
 </body>
 
 </html>

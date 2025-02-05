@@ -38,15 +38,7 @@ public class RegistroControlador extends HttpServlet {
             String telefono = request.getParameter("telefonoUsuario");
             String correo = request.getParameter("emailUsuario");
             String password = request.getParameter("passwordUsuario");
-            String confirmPassword = request.getParameter("confirmPasswordUsuario");
             String dni = request.getParameter("dniUsuario");
-
-            if (!password.equals(confirmPassword)) {
-                request.setAttribute("errorMessage", "Las contraseñas no coinciden.");
-                request.getRequestDispatcher("registro.jsp").forward(request, response);
-                return;
-            }
-
             byte[] fotoDniFrontal = obtenerBytesDeArchivo(request.getPart("fotoDniFrontalUsuario"));
             byte[] fotoDniTrasero = obtenerBytesDeArchivo(request.getPart("fotoDniTraseroUsuario"));
             byte[] fotoUsuario = obtenerBytesDeArchivo(request.getPart("fotoUsuario"));
