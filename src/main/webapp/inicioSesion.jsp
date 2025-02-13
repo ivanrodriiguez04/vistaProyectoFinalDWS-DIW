@@ -40,7 +40,7 @@
             <!-- Contraseña -->
             <div class="mb-3">
                 <label>Contraseña:</label>
-                <input type="password" id="passwordUsuario" name="passwordUsuario" class="form-control" placeholder="Introduce la contraseÃ±a" required>
+                <input type="password" id="passwordUsuario" name="passwordUsuario" class="form-control" placeholder="Introduce la contrasena" required>
             </div>
 
             <!-- Boton de iniciar sesion -->

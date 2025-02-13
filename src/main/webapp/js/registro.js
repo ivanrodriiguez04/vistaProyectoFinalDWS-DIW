@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Mostrar errores y deshabilitar el botón si hay errores
         if (errores.length > 0) {
             resultDiv.innerHTML = errores.join("<br>");
-            resultDiv.classList.add("alert", "alert-danger");
+            resultDiv.classList.remove("alert-success");
+            resultDiv.classList.add("alert", "alert-danger"); // Rojo para errores
             submitButton.disabled = true;
         } else {
             resultDiv.innerHTML = "";
@@ -47,10 +48,20 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener("input", validarFormulario);
     });
 
-    // Prevenir envío si hay errores
+    // Enviar el formulario correctamente y mostrar el mensaje de confirmación en verde
     form.addEventListener("submit", function (event) {
-        if (submitButton.disabled) {
-            event.preventDefault();
+        event.preventDefault(); // Evita recargar la página inmediatamente
+
+        if (!submitButton.disabled) {
+            // Mostrar mensaje de confirmación en verde
+            resultDiv.innerHTML = "✅ Revise el email para la confirmación de su cuenta.";
+            resultDiv.classList.remove("alert-danger");
+            resultDiv.classList.add("alert", "alert-success"); // Verde para éxito
+
+            // Enviar el formulario después de mostrar el mensaje
+            setTimeout(() => {
+                form.submit(); // Ahora el formulario se enviará correctamente
+            }, 5000); // Pequeño retraso para que el usuario vea el mensaje
         }
     });
 });
