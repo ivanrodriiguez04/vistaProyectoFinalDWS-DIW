@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%
+String emailUsuario = (String) session.getAttribute("emailUsuario");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +23,29 @@
 				<a href="index.jsp" class="logo">InnovaBank</a>
 			</div>
 			<div class="nav-right">
+				<%
+				if (emailUsuario == null) {
+				%>
 				<a href="registro.jsp" class="hazteCliente">Hazte cliente</a> <a
-					href="inicioSesion.jsp" class="login-cuentas">Login</a> <a
-					href="cuentas.jsp" class="login-cuentas">Cuentas</a>
+					href="inicioSesion.jsp" class="login-cuentas">Login</a>
+				<%
+				} else {
+				%>
+				<div class="dropdown">
+					<a class="dropdown-toggle email-link" id="userDropdown" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<%=emailUsuario%>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end"
+						aria-labelledby="userDropdown">
+						<li><a href="cuentas.jsp" class="dropdown-item">Cuentas</a></li>
+						<li><a href="logout.jsp" class="dropdown-item">Cerrar
+								Sesión</a></li>
+					</ul>
+				</div>
+				<%
+				}
+				%>
 			</div>
 		</div>
 	</nav>
